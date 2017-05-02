@@ -23,7 +23,7 @@ def getURL(searchQuery):
         summary_split = []
         summary_split = summary.split(". ")
 
-    print searchQuery ":::", summary_split[-1]
+    print summary_split[-1]
 
 
 for article in my_articles:

@@ -5,7 +5,14 @@ from articleData_summ import my_articles
 from wikiapi import WikiApi
 wiki = WikiApi({'locale': 'en'})
 
+# take lines from rawData and convert to list
+file_list = []
+f = open('./rawData.txt', 'r')
+for line in f.xreadlines():
+    file_list.append([line])
+f.close()
 
+# main function that takes an article and returns the summary
 def getURL(searchQuery):
     results = wiki.find(searchQuery)
 
@@ -20,11 +27,12 @@ def getURL(searchQuery):
         summary = "no summary exists for: " + searchQuery
 
     if summary:
-        summary_split = []
-        summary_split = summary.split(". ")
+        # summary_split = []
+        # summary_split = summary.split(". ")
+        print summary
 
-    print summary_split[-1]
+    # print summary_split[-1]
 
 
-for article in my_articles:
+for article in file_list:
     getURL(article)
